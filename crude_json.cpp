@@ -12,6 +12,7 @@
 # include "crude_json.h"
 # include <iomanip>
 # include <limits>
+# include <exception>
 # include <cstdlib>
 # include <clocale>
 # include <cmath>
