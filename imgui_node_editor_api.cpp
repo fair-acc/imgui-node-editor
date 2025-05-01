@@ -760,3 +760,11 @@ int ax::NodeEditor::GetOrderedNodeIds(NodeId* nodes, int size)
 {
     return s_Editor->GetNodeIds(nodes, size);
 }
+
+bool ax::NodeEditor::GetWasUserPositioned(ax::NodeEditor::NodeId nodeId)
+{
+    if (auto node = s_Editor->FindNode(nodeId)) {
+        return node->m_userPositioned;
+    }
+    return false;
+}
