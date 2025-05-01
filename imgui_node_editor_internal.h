@@ -404,6 +404,7 @@ struct Node final: Object
 
     bool     m_RestoreState;
     bool     m_CenterOnScreen;
+    bool     m_userPositioned;
 
     Node(EditorContext* editor, NodeId id)
         : Object(editor)
@@ -422,6 +423,7 @@ struct Node final: Object
         , m_HighlightConnectedLinks(false)
         , m_RestoreState(false)
         , m_CenterOnScreen(false)
+        , m_userPositioned(false)
     {
     }
 
