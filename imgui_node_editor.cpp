@@ -635,10 +635,12 @@ void ed::Node::UpdateDrag(const ImVec2& offset)
     auto size = m_Bounds.GetSize();
     m_Bounds.Min = ImFloor(m_DragStart + offset);
     m_Bounds.Max = m_Bounds.Min + size;
+    m_userPositioned = m_Bounds.Min != m_DragStart;
 }
 
 bool ed::Node::EndDrag()
 {
+    m_userPositioned = m_Bounds.Min != m_DragStart;
     return m_Bounds.Min != m_DragStart;
 }
 
@@ -1647,6 +1649,7 @@ void ed::EditorContext::SetNodePosition(NodeId nodeId, const ImVec2& position)
 
     if (node->m_Bounds.Min != position)
     {
+        node->m_userPositioned = false;
         node->m_Bounds.Translate(position - node->m_Bounds.Min);
         node->m_Bounds.Floor();
         MakeDirty(NodeEditor::SaveReasonFlags::Position, node);
