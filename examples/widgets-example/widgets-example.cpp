@@ -128,11 +128,11 @@ struct Example:
             // Arrow buttons with Repeater
             static int counter = 0;
             float spacing = ImGui::GetStyle().ItemInnerSpacing.x;
-            ImGui::PushButtonRepeat(true);
+            ImGui::PushItemFlag(ImGuiItemFlags_ButtonRepeat, true);
             if (ImGui::ArrowButton("##left", ImGuiDir_Left)) { counter--; }
             ImGui::SameLine(0.0f, spacing);
             if (ImGui::ArrowButton("##right", ImGuiDir_Right)) { counter++; }
-            ImGui::PopButtonRepeat();
+            ImGui::PopItemFlag();
             ImGui::SameLine();
             ImGui::Text("%d", counter);
 
