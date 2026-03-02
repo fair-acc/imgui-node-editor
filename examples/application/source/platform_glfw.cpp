@@ -97,7 +97,7 @@ bool PlatformGLFW::OpenMainWindow(const char* title, int width, int height)
     initializer = &ImGui_ImplGlfw_InitForOpenGL;
 # else
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-    initializer = &ImGui_ImplGlfw_InitForNone;
+    initializer = &ImGui_ImplGlfw_InitForOther;
 # endif
     glfwWindowHint(GLFW_SCALE_TO_MONITOR, GL_TRUE);
 

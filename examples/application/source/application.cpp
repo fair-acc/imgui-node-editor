@@ -89,9 +89,7 @@ void Application::RecreateFontAtlas()
 {
     ImGuiIO& io = ImGui::GetIO();
 
-    IM_DELETE(io.Fonts);
-
-    io.Fonts = IM_NEW(ImFontAtlas);
+    io.Fonts->ClearFonts();
 
     ImFontConfig config;
     config.OversampleH = 4;
@@ -208,7 +206,7 @@ ImTextureID Application::LoadTexture(const char* path)
         return texture;
     }
     else
-        return nullptr;
+        return ImTextureID{};
 }
 
 ImTextureID Application::CreateTexture(const void* data, int width, int height)

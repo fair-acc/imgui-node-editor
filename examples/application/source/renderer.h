@@ -5,7 +5,7 @@
 struct Platform;
 struct ImDrawData;
 struct ImVec4;
-using ImTextureID= void*;
+# include <imgui.h>
 
 struct Renderer
 {
